@@ -397,7 +397,7 @@
     noteTa.addEventListener("input", save);
     noteBtn.addEventListener("click", function () {
       var v = noteTa.value.trim(); if (!v) { noteTa.focus(); return; }
-      save();
+      noteTa.value = ""; save();
       noteBtn.disabled = true; noteBtn.textContent = "Sent ✓"; noteMsg.hidden = false;
       sendPrompt("Mid-review note (from the acceptance-criteria review widget) for " + (data.ticket || "the story under review") + ":\n" + v +
         "\n\nApply the live review guard: fold this note into the in-flight draft and re-render the review widget with the affected items marked. Do NOT write to the ticket and do NOT start a new run — my current review decisions are saved in the widget and must be restored on re-render.");
